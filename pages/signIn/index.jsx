@@ -13,7 +13,7 @@ function SignIn() {
     const [passwordErr, setPasswordErr] = useState('sdfsdf')
 
 
-    const handleSignIn = async (e: Even) => {
+    const handleSignIn = async (e) => {
 
         try {
             e.preventDefault()
@@ -40,7 +40,7 @@ function SignIn() {
 
     }
 
-    const handleSingIn = (e: Event) => {
+    const handleSingIn = (e) => {
         e.preventDefault()
         setSignInErr('noo whalaksjdf')
         setPasswordErr('noo what the heck are you doing')
@@ -63,7 +63,7 @@ function SignIn() {
                         <input className="input" type="password" name="password" id="password" ref={passWordRef} />
                         {passwordErr ? <div className="error-text">{passwordErr}</div> : <div></div>}
                     </div>
-                    <button onClick={(e: any) => handleSignIn(e)} className="btn-block">sign in </button>
+                    <button onClick={(e) => handleSignIn(e)} className="btn-block">sign in </button>
                     <p>don't have an account <span className="link"><Link href="/signUp">sing up</Link></span>.</p>
                 </form>
             </div>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 function SignUp() {
     const [singInErr, setSignInErr] = useState('sdfsdf')
     const [passwordErr, setPasswordErr] = useState('sdfsdf')
-    const handleSignUp = (e: Event) => {
+    const handleSignUp = (e) => {
         e.preventDefault()
         alert('hello we sign up now')
     }
@@ -30,7 +30,7 @@ function SignUp() {
                             <input className="input" type="password" name="confirm-password" id="confirm-password" />
                             {passwordErr ? <div className="error-text">{passwordErr}</div> : <div></div>}
                         </div>
-                        <button onClick={(e: any) => handleSignUp(e)} className="btn-block">sign up </button>
+                        <button onClick={(e) => handleSignUp(e)} className="btn-block">sign up </button>
                         <p>Already have an account <span className="link"><Link href="/signIn">sing in</Link></span>.</p>
                     </form>
                 </div>
