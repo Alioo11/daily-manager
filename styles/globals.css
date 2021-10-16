@@ -15,83 +15,113 @@ a {
   box-sizing: border-box;
 }
 
-.header{
+.header {
   font-size: 3rem;
   font-weight: 100;
 }
 
-.card{
+.card {
   border: solid 1px #707070;
   padding: 1.2rem;
   margin: 1rem;
 }
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.input-section{
+.input-section {
   display: flex;
   flex-direction: column;
 }
 
-.input-section label{
+.input-section label {
   color: #707070;
   margin: 2rem 0rem 0.5rem 0rem;
 }
 
-.input{
-    border: solid 2px #707070;
-    padding: 0.5rem;
-    font-size: 1.1rem;
-    max-width: 500px;
-    width: 25rem
+.input {
+  border: solid 2px #707070;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  max-width: 500px;
+  width: 25rem;
 }
 
-.btn-block{
+.btn-block {
   width: 100%;
-  background-color: #4857FF;
+  background-color: #4857ff;
   color: white;
   border: none;
-  font-size: 1.5rem ;
+  font-size: 1.5rem;
   padding: 1rem;
   margin: 1rem 0;
 }
-.btn-block:hover{
+.btn-block:hover {
   background-color: #3041ff;
 }
-.link{
+.link {
   color: #3041ff;
 }
-.error-text{
+.error-text {
   color: rgb(181, 0, 0);
-  font-size: 0.8em
+  font-size: 0.8em;
 }
 
+.more {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 200ms;
+}
+.more:hover {
+  background-color: rgb(223, 223, 223);
+}
+.col {
+  display: flex;
+  justify-content: space-between;
+}
 
-@media only screen and (max-width: 1900px) {}
+@media only screen and (max-width: 1900px) {
+  html {
+    font-size: 18px;
+  }
+}
 
-@media only screen and (max-width: 1300px) {}
+@media only screen and (max-width: 1300px) {
+  html {
+    font-size: 16px;
+  }
+}
 
 @media only screen and (max-width: 900px) {
-
+  html {
+    font-size: 13px;
+  }
 }
 
 @media only screen and (max-width: 550px) {
+  html {
+    font-size: 11px;
+  }
 
-.card { 
-  padding: 0.5rem 0.1rem;
-  margin: 0 ;
-  border: none;
-  width: 90%;
-}
-.input{
-  width: 100%;
-}
-
+  .card {
+    padding: 0.5rem 0.1rem;
+    margin: 0;
+    border: none;
+    width: 90%;
+  }
+  .input {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 300px) {
-
+  html {
+    font-size: 9px;
+  }
 }
