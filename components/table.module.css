@@ -2,14 +2,38 @@
   background-color: red;
 }
 
+.progress_main{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 15rem;
+}
+
+.progress_container{
+  height: 1rem;
+  background-color: #EEEEEE;
+  border-radius: 1rem;
+  width: 100%;
+  margin: 0.1rem;
+}
+
+.progress_inner{
+  height: 100%;
+  border-radius: 1rem;
+}
+
+
+
 .table_column {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   padding: 1rem;
   max-height: 5rem;
   color: #707070;
+}
+.table_column>:last-child{
 }
 
 .edit_column_btn {
@@ -32,6 +56,8 @@
   flex-wrap: wrap;
   overflow-y: scroll;
   max-height: 5rem;
+  width: 100%;
+  margin: 0rem 1rem;
 }
 
 .edit_column_btn:hover {
@@ -41,6 +67,7 @@
 .date {
   display: flex;
   flex-direction: column;
+  min-width: 5rem;
 }
 .date_date {
   font-size: 0.8rem;
@@ -75,4 +102,16 @@
 }
 .delete_btn:hover {
   color: red;
+}
+
+
+@media only screen and (max-width: 550px) {
+
+  .task_list{
+    display: none;
+  }
+  .progress_main{
+    max-width: 100%;
+  }
+
 }
