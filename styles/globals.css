@@ -65,8 +65,9 @@ a {
   color: #3041ff;
 }
 .error-text {
-  color: rgb(181, 0, 0);
-  font-size: 0.8em;
+  color: rgb(237, 21, 21);
+  font-weight: 600;
+  font-size: 0.95em;
 }
 
 .more {

@@ -1,51 +1,64 @@
-import React, { JSXElementConstructor, MouseEventHandler, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRef } from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/router'
+import { gql } from 'apollo-boost'
+import { useLazyQuery } from '@apollo/client'
+
+const SING_IN_USER = gql`
+query signInUser(
+  $userName :String!
+  $password:String!
+){
+  signIn(userName:$userName , password:$password){
+    userName
+    password
+    auth
+  }
+}
+`
 
 function SignIn() {
-
+    const rout = useRouter()
     const userNameRef = useRef()
     const passWordRef = useRef()
+    const [userNameErr, setUserNameErr] = useState('')
+    const [passwordErr, setPasswordErr] = useState('')
 
+    const [signInUser, { data, loading, error }] = useLazyQuery(SING_IN_USER)
 
-    const [singInErr, setSignInErr] = useState('sdfsdf')
-    const [passwordErr, setPasswordErr] = useState('sdfsdf')
-
-
-    const handleSignIn = async (e) => {
-
-        try {
-            e.preventDefault()
-            const userName = userNameRef.current.value;
-            const passWord = passWordRef.current.value;
-
-            console.log(userName);
-            console.log(passWord);
-
-
-            const responce = await axios.post("http://localhost:3636/signIn/", {
-                data: {
-                    userName, passWord
-                }
-            })
-            console.log(responce.data);
-        }
-        catch (err) {
-            console.log(err);
-
-
-
-        }
-
-    }
-
-    const handleSingIn = (e) => {
+    const handleSignIn = (e) => {
         e.preventDefault()
-        setSignInErr('noo whalaksjdf')
-        setPasswordErr('noo what the heck are you doing')
+        const userName = userNameRef.current.value;
+        const password = passWordRef.current.value;
+
+        if (!userName) {
+            setUserNameErr("unvalid user name")
+        } else if (userName) {
+            setUserNameErr("")
+        }
+        if (!password) {
+            setPasswordErr("unvalid Password")
+        } else if (password) {
+            setPasswordErr('')
+        }
+        if (userName && password) {
+            signInUser({ variables: { userName: userName, password: password } })
+        }
     }
 
+    useEffect(() => {
+        if (data) {
+            const { signIn } = data
+            console.log(signIn);
+            if (signIn !== null) {
+                window.localStorage.setItem("TOKEN", signIn.auth)
+                console.log(window.localStorage.getItem("TOKEN"));
+                rout.push({ pathname: "/home", query: { isRefetch: true } })
+            }
+        }
+    }, [loading])
 
 
     return (
@@ -56,7 +69,7 @@ function SignIn() {
                     <div className="input-section">
                         <label htmlFor="username">username</label>
                         <input className="input" type="text" name="username" id="username" ref={userNameRef} />
-                        {singInErr ? <div className="error-text">  {singInErr}</div> : <div></div>}
+                        {userNameErr ? <div className="error-text">  {userNameErr}</div> : <div></div>}
                     </div>
                     <div className="input-section">
                         <label htmlFor="password">password</label>

@@ -1,0 +1,55 @@
+.Container{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.input_section{
+    display: flex;
+    flex-direction: column;
+    color: #585858;
+    font-size: 1.1rem;
+    height: 5rem;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+.input_section label{
+    display: flex;
+    flex-direction: column;
+    color: #585858;
+    font-size: 1.1rem;
+    height: 5rem;
+    justify-content: space-between;
+}
+.input_section input{
+    border: none;
+    border-bottom: 2px solid  #585858;
+    color: #585858;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+.input_section input:focus{
+outline: none;
+background-color: rgb(219, 247, 248);
+}
+.submit{
+    background-color: #4857FF;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 1rem;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    margin: 5rem 0;
+}
+.date_badge{
+    background-color: #E4E4E4;
+    border-radius: 0.6rem;
+    color: #585858;
+    font-size: 1.5rem;
+    padding: 0.2rem 1rem;
+    width: fit-content;
+}
+.center_title{
+    text-align: center;
+}
